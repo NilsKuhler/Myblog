@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+        {{ content }}
+
+    {% include footer.html %}
+    {% include backToTop.html %}
+	<!-- Workaround {{ " /js/main.js " | prepend: site.baseurl }} does not work use following for local and remote settings. The code assumes an empty site.baseurl for running a local site.  -->
+	{% if site.baseurl %}
+       {% assign mainjs = "/js/main.js" | prepend: site.baseurl | prepend: site.url  %}
+       {% assign smoothjs = "/js/smooth-scroll.min.js" | prepend: site.baseurl | prepend: site.url %}	
+    {% else %}
+       {% assign mainjs = "/js/main.js"  %}
+       {% assign smoothjs = "/js/smooth-scroll.min.js" %}	
+	{% endif%}
+    <script src="{{ mainjs }}" charset="utf-8"></script>
+    <script src="{{ smoothjs }}" charset="utf-8"></script>
+	<!-- End Workaround -->
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src="{{ " /js/scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
+  </body>
+
+</html>
