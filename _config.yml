@@ -7,7 +7,7 @@
 
 # Site settings
 title: NK
-brief-intro: DevOps Data Engineer
+brief-intro: NK Personal Blog
 # >>OR use baseurl and url to deploy this site remotely/github
 baseurl: "/Myblog"                  # "/Myblog" # the subpath of your remote site, e.g. /blog
 url: "https://nilskuhler.github.io" # the url hostname & protocol for your remote site
